@@ -5,7 +5,7 @@ IMG_NAME="pierrekieffer/spark-hadoop-cluster"
 HOST_PREFIX="mycluster"
 NETWORK_NAME=$HOST_PREFIX
 
-N=${1:-2}
+N=${1:-3}
 NET_QUERY=$(docker network ls | grep -i $NETWORK_NAME)
 if [ -z "$NET_QUERY" ]; then
 	docker network create --driver=bridge $NETWORK_NAME

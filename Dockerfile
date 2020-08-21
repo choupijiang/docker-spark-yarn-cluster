@@ -12,14 +12,14 @@ ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 RUN ssh-keygen -t rsa -f $HOME/.ssh/id_rsa -P "" \
     && cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
 
-RUN wget -O /hadoop.tar.gz -q http://archive.apache.org/dist/hadoop/core/hadoop-2.7.3/hadoop-2.7.3.tar.gz \
+RUN wget -O /hadoop.tar.gz -q  https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/core/hadoop-2.7.7/hadoop-2.7.7.tar.gz \
         && tar xfz hadoop.tar.gz \
-        && mv /hadoop-2.7.3 /usr/local/hadoop \
+        && mv /hadoop-2.7.7 /usr/local/hadoop \
         && rm /hadoop.tar.gz
 
-RUN wget -O /spark.tar.gz -q https://archive.apache.org/dist/spark/spark-2.4.1/spark-2.4.1-bin-hadoop2.7.tgz
+RUN wget -O /spark.tar.gz -q https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.6/spark-2.4.6-bin-hadoop2.7.tgz
 RUN tar xfz spark.tar.gz
-RUN mv /spark-2.4.1-bin-hadoop2.7 /usr/local/spark
+RUN mv /spark-2.4.6-bin-hadoop2.7 /usr/local/spark
 RUN rm /spark.tar.gz
 
 
